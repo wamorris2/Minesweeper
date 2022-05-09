@@ -15,7 +15,6 @@ public:
 private:
   void placeMine(int row, int col);
   std::vector<Square> _board;
-  std::vector<bool> _visited;
   int _width, _height;
   int _numMines;
 };
