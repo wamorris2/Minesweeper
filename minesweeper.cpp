@@ -52,10 +52,18 @@ int main(int argc, char **argv)
       std::cin >> option;
       switch (option) {
 	case 'C': case 'c':
-          std::cout << "Enter Dimensions (width height): ";
-          std::cin >> width >> height;
-          std::cout << "Enter amount of mines [0, " << width * height << "]: ";
-	  std::cin >> nMines;
+	  do {
+            std::cout << "Enter Width [1,18]: ";
+            std::cin >> width;
+	  } while (width <= 0 || width >= 19);
+	  do {
+            std::cout << "Enter height [1,18]: ";
+            std::cin >> height;
+	  } while (height <= 0 || height >= 19);
+	  do {
+            std::cout << "Enter amount of mines [0, " << width * height << "]: ";
+	    std::cin >> nMines;
+	  } while (nMines < 0 || nMines > width * height);
           std::cout << "Enter Random Seed: ";
           std::cin >> seed;
 	  break;
